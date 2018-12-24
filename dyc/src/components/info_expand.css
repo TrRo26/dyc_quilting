@@ -1,0 +1,16 @@
+.info-collapsed .info-open {
+    /* margin-top: 50px; */
+}
+
+.info-collapsed {
+    color: red;
+    margin-top: 10px;
+}
+.info-open {
+    display: none;
+}
+.info-headers {
+    font-style: bold;
+    color: darkred;
+    font-size: 20px;
+}
