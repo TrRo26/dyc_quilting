@@ -1,6 +1,7 @@
 .all-container {
     width: 100%;
     margin: auto;
+    box-sizing: border-box;
 }
 .image-container {
     display: block;
@@ -15,4 +16,14 @@
     bottom: 525px;
     right: 5%;
     text-align: right;
+}
+.info-item {
+
+}
+.info-item-header {
+    font: red;
+
+}
+.info-item-full {
+    background: grey;
 }

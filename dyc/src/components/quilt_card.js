@@ -9,15 +9,15 @@ class QuiltCard extends Component {
             currentElement: false,
             showElement: false
         };
-      }
+    }
 
-      handleHover = (element) => {
+    handleHover = (element) => {
         this.setState({ showElement: true, currentElement: element });
-      };
+    };
       
-      handleLeave = () => {
+    handleLeave = () => {
         this.setState({ showElement: false, currentElement: false });
-      };
+    };
 
     render() {
         return (
@@ -26,18 +26,24 @@ class QuiltCard extends Component {
                     <img src={this.props.quiltImage}></img>
                 </div>
                 <div className='info-container'>
-                    <li className='info-item' onMouseLeave={this.handleLeave}>
-                        <p onMouseEnter={() => this.handleHover('title')}>Title</p>
-                        { this.state.showElement && this.state.currentElement === 'title' && this.props.title }
-                    </li>
-                    <li className='info-item' onMouseLeave={this.handleLeave}>
-                        <p onMouseEnter={() => this.handleHover('date')}>Date</p>
-                        { this.state.showElement && this.state.currentElement === 'date' && this.props.date }
-                    </li>
-                    <li className='info-item'>
-                        <p onMouseEnter={() => this.handleHover('description')}>Description</p>
-                        { this.state.showElement && this.state.currentElement === 'description' && this.props.description }
-                    </li>
+                    <div className='info-item' onMouseLeave={this.handleLeave}>
+                        <p className='info-item-header' onMouseEnter={() => this.handleHover('title')}>Title</p>
+                        <div className='info-item-full'>
+                            { this.state.showElement && this.state.currentElement === 'title' && this.props.title }
+                        </div>                            
+                    </div>
+                    <div className='info-item' onMouseLeave={this.handleLeave}>
+                        <p className='info-item-header' onMouseEnter={() => this.handleHover('date')}>Date</p>
+                        <div className='info-item-full'>
+                            { this.state.showElement && this.state.currentElement === 'date' && this.props.date }
+                        </div>
+                    </div>
+                    <div className='info-item' onMouseLeave={this.handleLeave}>
+                        <p className='info-item-header' onMouseEnter={() => this.handleHover('about')}>About</p>
+                        <div className='info-item-full'>
+                            { this.state.showElement && this.state.currentElement === 'about' && this.props.about }
+                        </div>
+                    </div>
                 </div>
             </div>
         )
