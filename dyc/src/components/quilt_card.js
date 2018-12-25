@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import InfoItemFull from './info_item_full.js'
 import './quilt_card.css'
 
 class QuiltCard extends Component {
@@ -20,6 +21,8 @@ class QuiltCard extends Component {
     };
 
     render() {
+        // const title = this.props.title
+
         return (
             <div className='all-container'>
                 <div className='image-container'>
@@ -27,21 +30,21 @@ class QuiltCard extends Component {
                 </div>
                 <div className='info-container'>
                     <div className='info-item' onMouseLeave={this.handleLeave}>
-                        <p className='info-item-header' onMouseEnter={() => this.handleHover('title')}>Title</p>
-                        <div className='info-item-full'>
-                            { this.state.showElement && this.state.currentElement === 'title' && this.props.title }
-                        </div>                            
+                        <div className='info-item-header' onMouseEnter={() => this.handleHover('title')}>Title</div>  
+                        <div className='info-item-full-container'>
+                            { this.state.showElement && this.state.currentElement === 'title' && <InfoItemFull infoItem={this.props.title} /> }
+                        </div>
                     </div>
                     <div className='info-item' onMouseLeave={this.handleLeave}>
                         <p className='info-item-header' onMouseEnter={() => this.handleHover('date')}>Date</p>
-                        <div className='info-item-full'>
-                            { this.state.showElement && this.state.currentElement === 'date' && this.props.date }
+                        <div className='info-item-full-container'>
+                            { this.state.showElement && this.state.currentElement === 'date' && <InfoItemFull infoItem={this.props.date} /> }
                         </div>
                     </div>
                     <div className='info-item' onMouseLeave={this.handleLeave}>
                         <p className='info-item-header' onMouseEnter={() => this.handleHover('about')}>About</p>
-                        <div className='info-item-full'>
-                            { this.state.showElement && this.state.currentElement === 'about' && this.props.about }
+                        <div className='info-item-full-container'>
+                            { this.state.showElement && this.state.currentElement === 'about' && <InfoItemFull infoItem={this.props.about} /> }
                         </div>
                     </div>
                 </div>

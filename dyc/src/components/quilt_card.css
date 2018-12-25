@@ -18,12 +18,19 @@
     text-align: right;
 }
 .info-item {
-
+    height: 50px;
+    float: right;
+    clear: both;
 }
 .info-item-header {
-    font: red;
-
+    display: block;
+    float: right;
+    /* clear: both; */
+    color: red;
+    width: 75px;
 }
-.info-item-full {
-    background: grey;
+.info-item-full-container {
+    position: relative;
+    float: left;
+    text-align: left;
 }
