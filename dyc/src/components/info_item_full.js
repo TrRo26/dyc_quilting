@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import './info_item_full.css'
 
 class InfoItemFull extends Component {
