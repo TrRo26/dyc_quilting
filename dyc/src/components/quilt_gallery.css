@@ -1,0 +1,13 @@
+.quilt-gallery-container {
+}
+.filter-container {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+.filter-year {
+    margin: 10px;
+    padding: 10px;
+    background: lightgrey;
+    border-radius: 4px;
+}
