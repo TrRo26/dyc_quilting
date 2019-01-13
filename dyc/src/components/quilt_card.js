@@ -42,6 +42,12 @@ class QuiltCard extends Component {
                         </div>
                     </div>
                     <div className='info-item' onMouseLeave={this.handleLeave}>
+                        <p className='info-item-header' onMouseEnter={() => this.handleHover('size')}>Size</p>
+                        <div className='info-item-full-container'>
+                            { this.state.showElement && this.state.currentElement === 'size' && <InfoItemFull infoItem={this.props.size} /> }
+                        </div>
+                    </div>
+                    <div className='info-item' onMouseLeave={this.handleLeave}>
                         <p className='info-item-header' onMouseEnter={() => this.handleHover('about')}>About</p>
                         <div className='info-item-full-container'>
                             { this.state.showElement && this.state.currentElement === 'about' && <InfoItemFull infoItem={this.props.about} /> }

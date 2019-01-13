@@ -11,6 +11,7 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
+    <img src="./src/images/quilt_header.jpg"></img>
     <div
       style={{
         margin: `0 auto`,
