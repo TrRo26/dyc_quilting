@@ -61,7 +61,7 @@ class QuiltCard extends Component {
                     <div className='info-item'>
                         <p className='info-item-header' onClick={() => this.handleClick()}>Comments</p>
                         <div className='info-item-full-container'>
-                            {this.state.showCommentsModal && <CommentsModal quiltID={this.props.id} />}
+                            {this.state.showCommentsModal && <CommentsModal quiltID={this.props.id} disqusURL={this.props.disqusURL} />}
                         </div>
                     </div>
                 </div>

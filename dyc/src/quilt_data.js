@@ -5,7 +5,8 @@ import Image3 from './images/image_three.png'
 const QuiltData  = () => (
     [
         {
-            id: '1000',
+            id: '1002',
+            disqusURL: 'http://www.1004.com',
             title: 'Title One',
             date: '12/23/2018',
             size: 'unknown',
@@ -13,7 +14,8 @@ const QuiltData  = () => (
             quiltImage: Image1
         },
         {
-            id: '2000',
+            id: '2003',
+            disqusURL: 'http://www.2004.com',
             title: 'Title Two',
             date: '12/23/2017',
             size: 'unknown',
@@ -21,7 +23,8 @@ const QuiltData  = () => (
             quiltImage: Image2
         },
         {
-            id: '3000',
+            id: '3004',
+            disqusURL: 'http://www.3004.com',
             title: 'Title Three',
             date: '12/23/2016',
             size: 'unknown',
