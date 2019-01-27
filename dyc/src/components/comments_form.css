@@ -1,0 +1,12 @@
+.comment-submit-container {
+
+}
+.author-submit-container {
+    display: inline-block;
+}
+.location-submit-container {
+    display: inline-block;
+}
+.email-submit-container {
+    display: inline-block;
+}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import InfoItemFull from './info_item_full.js'
 import CommentsModal from './comments_modal.js'
+import Comments from './comments.js'
 import './quilt_card.css'
 
 class QuiltCard extends Component {
@@ -11,11 +12,9 @@ class QuiltCard extends Component {
             currentElement: false,
             showElement: false,
             showCommentsModal: false,
+            showCustomComments: false,
             comments: []
         }
-        fetch('http://mysql.darleyclevenger.com/comments')
-        .then(response => response.json())
-        // .then(comments => (this.setState({comments})))
     }
 
     handleHover = (element) => {
@@ -30,8 +29,12 @@ class QuiltCard extends Component {
         this.setState(prevState => ({showCommentsModal: !prevState.showCommentsModal}))
     }
 
-    handleCommentsClick = () => {
+    handleCustomCommentsClick = () => {
+        this.setState(prevState => ({showCustomComments: !prevState.showCustomComments}))
         // this.setState(prevState => ({showCommentsModal: !prevState.showCommentsModal}))
+        // fetch('http://mysql.darleyclevenger.com/comments')
+        // .then(response => response.json())
+        // .then(comments => (this.setState({comments})))
     }
 
     render() {
@@ -73,9 +76,9 @@ class QuiltCard extends Component {
                         </div>
                     </div>
                     <div className='info-item'>
-                        <p className='info-item-header' onClick={() => this.handleCustomComments()}>Custom Comments</p>
-                        <div className='info-item-full-container'>
-                            {this.state.comments}
+                        <p className='info-item-header' onClick={() => this.handleCustomCommentsClick()}>Custom Comments</p>
+                        <div className='main-comments-container'>
+                            {this.state.showCustomComments && <Comments quiltId={this.props.quiltId} />}
                         </div>
                     </div>
                 </div>

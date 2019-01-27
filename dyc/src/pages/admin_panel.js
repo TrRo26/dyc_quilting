@@ -35,14 +35,14 @@ class AdminPanel extends Component {
         )
 
         for (var value of formData.entries()) {
-            console.log(value); 
+            console.log(value)
         }
         
         fetch('http://localhost:3000/quilt/post', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(this.state)
-        }).then( response => { console.log(response);})
+        }).then(response => {console.log(response)})
         .catch(err => console.log(err))
     }
 

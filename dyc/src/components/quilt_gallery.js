@@ -47,7 +47,7 @@ class QuiltGallery extends Component {
             return (
                 <div key={quilt.title}>
                     <QuiltCard
-                        id={quilt.id}
+                        quiltId={quilt.id}
                         disqusURL={quilt.disqusURL}
                         title={quilt.title}
                         date={quilt.date}

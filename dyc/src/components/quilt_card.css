@@ -34,3 +34,12 @@
     float: left;
     text-align: left;
 }
+.main-comments-container {
+    position: absolute;
+    text-align: center;
+    width: 140%;
+    top: 175%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
