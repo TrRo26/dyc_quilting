@@ -6,28 +6,32 @@ const initialState = {
     commentText: '',
     author: '',
     location: '',
-    email: '',
-    quiltId: this.props.quiltId
+    email: ''
 }
 
 class CommentsForm extends Component {
     constructor(props) {
         super(props)
-        this.state = initialState
+        this.state = {
+            commentText: '',
+            author: '',
+            location: '',
+            email: '',
+            quiltId: this.props.quiltId
+        }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log("STATE IS: ")
-        console.log(this.state)
         fetch('http://localhost:3000/comment/post', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(this.state)
-        }).then(response => {console.log(response)}, this.setState(initialState))
-        .catch(err => console.log(err))
+        }
+        ).then(response => {console.log(response)}, this.setState(initialState)
+        ).catch(err => console.log(err))
     }
 
     handleChange(event, field) {

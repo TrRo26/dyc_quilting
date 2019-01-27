@@ -5,6 +5,9 @@ const cors = require('cors')
 const app = express()
 const conCred = require('./credentials.js')
 
+// ==============================================================================
+// CONFIG
+// ==============================================================================
 app.use(cors())
 app.use(bodyParser.json())
 const connection = mysql.createConnection(conCred.credentials())
