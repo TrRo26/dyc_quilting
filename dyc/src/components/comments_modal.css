@@ -5,3 +5,12 @@
     height: 900px;
     background: white;
 }
+#recommend-button {
+    display: none;   
+}
+#thread-share-bar {
+    display: none;
+}
+.thread-share-bar-buttons {
+    display: none;
+}

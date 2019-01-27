@@ -10,8 +10,12 @@ class QuiltCard extends Component {
         this.state = {
             currentElement: false,
             showElement: false,
-            showCommentsModal: false
+            showCommentsModal: false,
+            comments: []
         }
+        fetch('http://mysql.darleyclevenger.com/comments')
+        .then(response => response.json())
+        // .then(comments => (this.setState({comments})))
     }
 
     handleHover = (element) => {
@@ -22,8 +26,12 @@ class QuiltCard extends Component {
         this.setState({showElement: false, currentElement: false})
     }
 
-    handleClick = () => {
+    handleCommentsClick = () => {
         this.setState(prevState => ({showCommentsModal: !prevState.showCommentsModal}))
+    }
+
+    handleCommentsClick = () => {
+        // this.setState(prevState => ({showCommentsModal: !prevState.showCommentsModal}))
     }
 
     render() {
@@ -31,7 +39,7 @@ class QuiltCard extends Component {
         return (
             <div className='all-container'>
                 <div className='image-container'>
-                    <img src={this.props.quiltImage}></img>
+                    <img src={this.props.quiltImage}></img>                
                 </div>
                 <div className='info-container'>
                     <div className='info-item' onMouseLeave={this.handleLeave}>
@@ -59,9 +67,15 @@ class QuiltCard extends Component {
                         </div>
                     </div>
                     <div className='info-item'>
-                        <p className='info-item-header' onClick={() => this.handleClick()}>Comments</p>
+                        <p className='info-item-header' onClick={() => this.handleCommentsClick()}>Comments</p>
                         <div className='info-item-full-container'>
                             {this.state.showCommentsModal && <CommentsModal quiltID={this.props.id} disqusURL={this.props.disqusURL} />}
+                        </div>
+                    </div>
+                    <div className='info-item'>
+                        <p className='info-item-header' onClick={() => this.handleCustomComments()}>Custom Comments</p>
+                        <div className='info-item-full-container'>
+                            {this.state.comments}
                         </div>
                     </div>
                 </div>
