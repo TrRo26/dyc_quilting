@@ -15,6 +15,7 @@ class CommentsDisplay extends Component {
                 <div>{this.props.commentText}</div>
                 <div>Author: {this.props.author}</div>
                 <div>Location: {this.props.location}</div>
+                <div>Date: {this.props.date}</div>
                 <div>-------------------------------</div>
             </div>
         )

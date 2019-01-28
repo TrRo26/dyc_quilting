@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import CommentsForm from './comments_form.js'
 import CommentsDisplay from './comments_display.js'
+import moment from 'moment'
 import './comments.css'
 
 class Comments extends Component {
@@ -31,13 +32,13 @@ class Comments extends Component {
 
     render() {
         this.getComments()
-        // console.log(this.state.currentCommentsData)
         const commentsDisplay = this.state.currentCommentsData.map(comment => {
             return(
                 <CommentsDisplay 
                     commentText={comment.comment_text}
                     author={comment.author}
                     location={comment.location}
+                    date={moment(comment.created_date).format('MMM DD, YYYY')}
                 />
             )
         })

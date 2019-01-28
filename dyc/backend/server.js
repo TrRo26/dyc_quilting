@@ -15,33 +15,39 @@ const connection = mysql.createConnection(conCred.credentials())
 // ==============================================================================
 // ROUTES
 // ==============================================================================
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
 	res.send('SUCCESSFUL GET TO /')
 	// res.sendFile('index.html')
 })
 
-app.get('/quilts', function (req, res) {
+app.get('/quilts', function(req, res) {
 	// connection.connect()
-	connection.query('SELECT * FROM quilt', function (error, jsonResponse, fields) {
+	connection.query('SELECT * FROM quilt', function(error, jsonResponse, fields) {
 	 	if (error) throw error
 		res.send(jsonResponse)
 	})
 	// connection.end()
 })
 
-app.get('/comments', function (req, res) {
-	connection.query('SELECT * FROM comment', function (error, jsonResponse, fields) {
+app.get('/comments', function(req, res) {
+	connection.query('SELECT * FROM comment WHERE approved = false', function(error, jsonResponse, fields) {
 		if (error) throw error
 		res.send(jsonResponse)
 		console.log("AUTHOR: " + jsonResponse[0].author)
 	})
 })
 
-app.get('/comments/:quiltId', function (req, res) {
-	connection.query('SELECT * FROM comment WHERE quilt_id = ' + req.params.quiltId, function (error, jsonResponse, fields) {
+app.get('/comments/:quiltId', function(req, res) {
+	connection.query('SELECT * FROM comment WHERE quilt_id = ' + req.params.quiltId, function(error, jsonResponse, fields) {
 		if (error) throw error
 		res.send(jsonResponse)
-		// console.log("AUTHOR: " + jsonResponse[0].author)
+	})
+})
+
+app.get('/quilts_and_comments', function(req, res) {
+	connection.query('SELECT * FROM quilt JOIN comment ON quilt.quilt_id = comment.quilt_id', function(error, jsonResponse) {
+		if (error) throw error
+		res.send(jsonResponse)
 	})
 })
 

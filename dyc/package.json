@@ -19,6 +19,7 @@
     "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-sharp": "^2.1.10",
     "gsap": "^2.0.2",
+    "moment": "^2.24.0",
     "mysql": "^2.16.0",
     "net": "^1.0.2",
     "node-fetch": "^2.3.0",
