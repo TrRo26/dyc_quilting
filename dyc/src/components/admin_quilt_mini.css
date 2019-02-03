@@ -1,4 +1,5 @@
-.quilt-mini-container {
+.quilt-mini-inner-container {
+    /* display: inline-block; */
     margin: 20px;
     height: 150px;
     width: 250px;

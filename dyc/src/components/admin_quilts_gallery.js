@@ -1,14 +1,18 @@
 import React, {Component} from 'react'
 import './admin_quilts_gallery.css'
-import AdminQuiltMini from './admin_quilt_mini';
+import AdminQuiltMini from './admin_quilt_mini'
+import AdminQuiltView from './admin_quilt_view'
 
 class AdminQuiltsGallery extends Component {
     constructor(props) {
         super(props)
         this.state = {
             allQuiltsAndComments: [],
-            quiltsAndCommentsLoaded: false
+            quiltsAndCommentsLoaded: false,
+            indQuiltView: false,
+            currentIndQuilt: 0
         }
+        // this.handleQuiltMiniClick = this.handleQuiltMiniClick.bind(this)
     }
 
     fetchAllQuiltComments() {
@@ -21,8 +25,6 @@ class AdminQuiltsGallery extends Component {
                     allQuiltsAndComments: this.buildQuiltCommentLibrary(data),
                     quiltsAndCommentsLoaded: true
                 })
-                // console.log("ALL DATA: ")
-                // console.log(data)
             }).catch(err => console.log(err))
         }
     }
@@ -30,7 +32,6 @@ class AdminQuiltsGallery extends Component {
     buildQuiltCommentLibrary(data) {
         var quiltsAndComments = {}
         data.map(item => {
-            // console.log(item)
             if(!quiltsAndComments[item.quilt_id]) {
                 quiltsAndComments[item.quilt_id] = {
                     title: item.title,
@@ -54,7 +55,7 @@ class AdminQuiltsGallery extends Component {
                     location: item.location,
                     isNew: item.is_new,
                     published: item.published,
-                    commentDate: item.created_data
+                    commentDate: item.created_date
                 })
             }
         })
@@ -72,28 +73,36 @@ class AdminQuiltsGallery extends Component {
         return commentsCount
     }
 
+    handleQuiltMiniClick(param, e) {
+        this.setState(prevState => ({
+            indQuiltView: !prevState.indQuiltView,
+            currentIndQuilt: param
+        }))
+    }
+
     render() {
         this.fetchAllQuiltComments()
         var allData = this.state.allQuiltsAndComments
         var quiltGallery = []
 
         for(var quilt in allData) {
-            console.log("Quilt")
-            console.log(quilt)
             quiltGallery.push(
-                <AdminQuiltMini
-                    quiltId={quilt}
-                    totalComments={allData[quilt].comments.length}
-                    publishedComments={this.findCommentsCount(allData[quilt].comments, 'published')}
-                    newComments={this.findCommentsCount(allData[quilt].comments, 'isNew')}
-                />
+                <div className='quilt-mini-container' onClick={this.handleQuiltMiniClick.bind(this, allData[quilt])}>
+                    <AdminQuiltMini
+                        quiltId={quilt}
+                        totalComments={allData[quilt].comments.length}
+                        publishedComments={this.findCommentsCount(allData[quilt].comments, 'published')}
+                        newComments={this.findCommentsCount(allData[quilt].comments, 'isNew')}
+                    />
+                </div>
             )
         }
 
         return(
             <div className="quilts-gallery-container">
-                 <div>QUILT COMMENTS</div>
+                 <div>QUILT MODERATION</div>
                  <div>{quiltGallery}</div>
+                 {this.state.indQuiltView && <AdminQuiltView quiltData={this.state.currentIndQuilt} />}
             </div>
         )
     }
