@@ -11,7 +11,7 @@ class AdminQuiltMini extends Component {
 
     render() {
         return(
-            <div className="quilt-mini-inner-container">
+            <div className='quilt-mini-inner-container'>
                 <div>QID: {this.props.quiltId}</div>
                 <div>NEW COMMENTS: {this.props.newComments}</div>
                 <div>Published Comments: {this.props.publishedComments}</div>

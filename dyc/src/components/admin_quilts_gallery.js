@@ -99,8 +99,8 @@ class AdminQuiltsGallery extends Component {
         }
 
         return(
-            <div className="quilts-gallery-container">
-                 <div>QUILT MODERATION</div>
+            <div className='quilts-gallery-container'>
+                 <div>QUILT MODERATION GALLERY</div>
                  <div>{quiltGallery}</div>
                  {this.state.indQuiltView && <AdminQuiltView quiltData={this.state.currentIndQuilt} />}
             </div>

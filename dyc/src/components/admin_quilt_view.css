@@ -1,0 +1,59 @@
+.quilt-moderation-container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.quilt-mod-title {
+    margin: 30px;
+    font-size: 40px;
+}
+.button {
+    border: 1px solid black;
+    border-radius: 3px;
+}
+.return-button {
+    background: lightcoral;
+}
+
+/* INFO CONTAINER */
+.quilt-info-container {
+    padding: 10px;
+    background: lightsalmon;
+    border: 1px solid black;
+}
+
+/* COMMENTS CONTAINER */
+.quilt-comments-container {
+    margin: 20px;
+    padding: 10px;
+}
+.quilt-comment-container {
+    margin: 20px;
+    padding: 5px;
+    border: 1px solid black;
+}
+.comment-text {
+
+}
+.author {
+    display: inline-block;
+    margin: 5px;
+}
+.location {
+    display: inline-block;
+    margin: 5px;
+}
+.date {
+    display: inline-block;
+    margin: 5px;
+}
+.pub-unpub-button-container {
+    display: inline-block;
+    float: right;
+}
+.published-button {
+    background: lightgreen;
+}
+.unpublished-button {
+    background: lightgrey;
+}
